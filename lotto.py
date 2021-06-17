@@ -3,9 +3,11 @@ import random
 from tkinter import messagebox
 
 root=Tk()
-root.geometry("600x600")
+root.geometry("800x800")
 root.title("lotto")
 root.config(bg="yellow")
+
+
 
 class Lotto_machine():
         def __init__(self,slave):
@@ -160,6 +162,9 @@ class Lotto_machine():
 
 
 
+            # first set of entries
+
+
             self.num_label1 =Label(slave, text="Numbers")
             self.num_label1.place(x=360, y=150)
             self.num_entry1=Entry(slave, width=28)
@@ -189,7 +194,7 @@ class Lotto_machine():
 
             self.results_label2 = Label(slave, text="Results", )
             self.results_label2.place(x=360,y=400)
-            self.results_entry2=Entry(slave, width=28)
+            self.results_entry2 = Entry(slave, width=28)
             self.results_entry2.place(x=420,y=400)
 
             # Third set
@@ -198,6 +203,7 @@ class Lotto_machine():
             self.num_label3.place(x=360, y=450)
             self.num_entry3=Entry(slave, width=28)
             self.num_entry3.place(x=420,y=450)
+            #self.num_entry3.config(state='readonly')
 
             self.draw_label3 = Label(slave, text="Draw")
             self.draw_label3.place(x=360,y=500)
@@ -211,110 +217,118 @@ class Lotto_machine():
 
 
 
+
             #play buttons
 
-            self.play_btn = Button(slave,text="play",command=self.play)
+            self.play_btn = Button(slave,text="Play",command=self.play)
             self.play_btn.place(x=100,y=400)
+
+            self.play_btn2 = Button(slave, text = "Play")
 
 
             # Sample creates a sample without replacement
             self.game_numbers = random.sample(range(1, 49), 6) # creating 6 random numbers
 
-        # Append each number 1 of the 3 empty list
+        # Append each number on 1 of the 3 empty list
         def one(self):
+            from tkinter import messagebox
 
-            if len(self.empty1) <= 5:
-                self.empty1.append(1)
+            if len(self.empty1) < 7:
+                    self.empty1.append(1)
+                    self.btn_1.config(state='disable')
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
-                self.empty2.append(1)
+            elif  len(self.empty2) < 7:
+                    self.empty2.append(1)
+                    self.btn_1.config(state='disable')
+
             else:
+
                 self.empty3.append(1)
-            self.btn_1.config(state="disable")
+                self.btn_1.config(state='disable')
 
 
 
         def two(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(2)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(2)
             else:
                 self.empty3.append(2)
 
         def three(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(3)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(3)
             else:
                 self.empty3.append(3)
 
         def four(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(4)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(4)
             else:
                 self.empty3.append(4)
 
 
         def five(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(5)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(5)
             else:
                 self.empty3.append(5)
 
 
         def six (self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(6)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(6)
             else:
                 self.empty3.append(6)
 
 
         def seven (self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(7)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(7)
             else:
                 self.empty3.append(7)
         def eight(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(8)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(8)
             else:
                 self.empty3.append(8)
 
 
         def nine(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(9)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(9)
             else:
                 self.empty3.append(9)
 
 
         def ten(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(10)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(10)
             else:
                 self.empty3.append(10)
@@ -322,30 +336,30 @@ class Lotto_machine():
 
 
         def eleven(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(11)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(11)
             else:
                 self.empty3.append(11)
 
 
         def twelve(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(12)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(12)
             else:
                 self.empty3.append(12)
 
 
         def thirteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(13)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(13)
             else:
                 self.empty3.append(13)
@@ -353,347 +367,349 @@ class Lotto_machine():
 
 
         def fourteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(14)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(14)
             else:
                 self.empty3.append(14)
 
 
         def fifteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(15)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(15)
             else:
                 self.empty3.append(15)
 
         def sixteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(16)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(16)
             else:
                 self.empty3.append(16)
 
         def seventeen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(17)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(17)
             else:
                 self.empty3.append(17)
 
         def eighteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(18)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(18)
             else:
                 self.empty3.append(18)
 
         def nineteen(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(19)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(19)
             else:
                 self.empty3.append(19)
 
         def twenty(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(20)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(20)
             else:
                 self.empty3.append(20)
 
         def twenty_one(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(21)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(21)
             else:
                 self.empty3.append(21)
 
 
         def twenty_two(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(22)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(22)
             else:
                 self.empty3.append(22)
 
         def twenty_3(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(23)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(23)
             else:
                 self.empty3.append(23)
 
 
         def twenty_4(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(24)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(24)
             else:
                 self.empty3.append(24)
 
 
         def twenty_5(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(25)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(25)
             else:
                 self.empty3.append(25)
 
         def twenty_6(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(26)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(26)
             else:
                 self.empty3.append(26)
 
 
         def twenty_7(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(27)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(27)
             else:
                 self.empty3.append(27)
 
 
         def twenty_8(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(28)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(28)
             else:
                 self.empty3.append(28)
 
 
         def twenty_9(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(29)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(29)
             else:
                 self.empty3.append(29)
 
 
         def thirty(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(30)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(30)
             else:
                 self.empty3.append(30)
 
 
         def thirty_1(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(31)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(31)
             else:
                 self.empty3.append(31)
 
 
         def thirty_2(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(32)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(32)
             else:
                 self.empty3.append(32)
 
         def thirty_3(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(33)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(33)
             else:
                 self.empty3.append(33)
 
 
         def thirty_4(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(34)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(34)
             else:
                 self.empty3.append(34)
 
 
         def thirty_5(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(35)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(35)
             else:
                 self.empty3.append(35)
 
 
         def thirty_6(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(36)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(36)
             else:
                 self.empty3.append(36)
 
 
         def thirty_7(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(37)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(37)
             else:
                 self.empty3.append(37)
 
 
         def thirty_8(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(38)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(38)
             else:
                 self.empty3.append(38)
 
 
         def thirty_9(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(39)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(39)
             else:
                 self.empty3.append(39)
 
 
         def fourty(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(40)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(40)
             else:
                 self.empty3.append(40)
 
 
         def fourty_1(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(41)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(41)
             else:
                 self.empty3.append(41)
 
         def fourty_2(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(42)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(42)
             else:
                 self.empty3.append(42)
 
         def fourty_3(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(43)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(43)
             else:
                 self.empty3.append(43)
 
         def fourty_4(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(44)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(44)
             else:
                 self.empty3.append(44)
 
 
         def fourty_5(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(45)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif  len(self.empty2) < 7:
                 self.empty2.append(45)
             else:
                 self.empty3.append(45)
 
         def fourty_6(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(46)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(46)
             else:
                 self.empty3.append(46)
 
 
         def fourty_7(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(47)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty2) < 7:
                 self.empty2.append(47)
             else:
                 self.empty3.append(47)
 
 
         def fourty_8(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
                 self.empty1.append(48)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty1) < 7:
+
                 self.empty2.append(48)
             else:
                 self.empty3.append(48)
 
 
         def fourty_9(self):
-            if len(self.empty1) <= 5:
+            if len(self.empty1) < 7:
+
                 self.empty1.append(49)
 
-            elif len(self.empty1) == 6 and len(self.empty2) <= 6:
+            elif len(self.empty1) < 7:
                 self.empty2.append(49)
             else:
                 self.empty3.append(49)
@@ -704,32 +720,46 @@ class Lotto_machine():
 
         def play(self):
 
-            if len(self.empty1) <= 6:
-
+            if len(self.empty1) < 7:
                 for i in self.game_numbers:
                     if i in self.empty1:
                         self.compare.append(i)
-                self.num_entry1.insert(0,self.empty1)
-                self.results_entry1.insert(0,self.compare)
-                self.draw_entry1.insert(0,self.game_numbers)
 
-            elif len(self.empty2) == 6:
-
+            elif len(self.empty2) < 7:
                 for i in self.game_numbers:
                     if i in self.empty2:
                         self.compare.append(i)
+
+            else:
+                if len(self.empty3) < 7:
+                    for i in self.game_numbers:
+                        if i in self.empty3:
+                            self.compare.append(i)
+
+            self.num_entry1.insert(0,self.empty1)
+            self.results_entry1.insert(0,self.compare)
+            self.draw_entry1.insert(0,self.game_numbers)
+            self.num_entry1.config(state='readonly')
+            self.results_entry1.config(state='readonly')
+            self.draw_entry1.config(state='readonly')
+
+            if len(self.empty2) != 0:
+
                 self.num_entry2.insert(0,self.empty2)
                 self.results_entry2.insert(0,self.compare)
                 self.draw_entry2.insert(0,self.game_numbers)
+                self.num_entry2.config(state='readonly')
+                self.results_entry2.config(state='readonly')
+                self.draw_entry2.config(state='readonly')
 
-            elif len(self.empty3) == 6:
-                for i in self.game_numbers:
-                    if i in self.empty3:
-                        self.compare.append(i)
-                self.num_entry1.insert(0,self.empty3)
-                self.results_entry1.insert(0,self.compare)
-                self.draw_entry1.insert(0,self.game_numbers)
+            if len(self.empty3) != 0:
 
+                self.num_entry3.insert(0,self.empty3)
+                self.results_entry3.insert(0,self.compare)
+                self.draw_entry3.insert(0,self.game_numbers)
+                self.num_entry3.config(state='readonly')
+                self.results_entry3.config(state='readonly')
+                self.draw_entry3.config(state='readonly')
 
 
 

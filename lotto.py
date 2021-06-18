@@ -63,10 +63,10 @@ class Lotto_machine():
             self.btn_20=Button(slave,text="20",width=3, command=self.twenty)
             self.btn_20.place(x=180,y=220)
 
-            self.btn_21=Button(slave,text="21",width=3, command=self.twenty_one)
+            self.btn_21=Button(slave,text="21",width=3, command=self.twenty_1)
             self.btn_21.place(x=215,y=220)
 
-            self.btn_22=Button(slave,text="22",width=3, command=self.twenty_two)
+            self.btn_22=Button(slave,text="22",width=3, command=self.twenty_2)
             self.btn_22.place(x=5,y=255)
 
             self.btn_23=Button(slave,text="23",width=3, command=self.twenty_3)
@@ -221,9 +221,15 @@ class Lotto_machine():
             #play buttons
 
             self.play_btn = Button(slave,text="Play",command=self.play)
-            self.play_btn.place(x=100,y=400)
+            self.play_btn.place(x=50,y=400)
 
-            self.play_btn2 = Button(slave, text = "Play")
+            # Play again button / Clear button
+            self.clear_btn = Button(slave,text='Play Again',command = self.clear )
+            self.clear_btn.place(x=150,y=400)
+
+            # claim button
+            self.claim_btn = Button(slave, text="Claim", command = self.claim())
+            self.claim_btn.place(x=400,y=400)
 
 
             # Sample creates a sample without replacement
@@ -233,519 +239,929 @@ class Lotto_machine():
         def one(self):
             from tkinter import messagebox
 
-            if len(self.empty1) < 7:
+            if len(self.empty1) < 6:
                     self.empty1.append(1)
+                    self.num_entry1.insert(END,"1 ")
                     self.btn_1.config(state='disable')
 
-            elif  len(self.empty2) < 7:
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(1)
+                    self.num_entry2.insert(END,"1 ")
                     self.btn_1.config(state='disable')
 
-            else:
-
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(1)
+                self.num_entry3.insert(END,"1 ")
                 self.btn_1.config(state='disable')
-
-
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def two(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(2)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(2)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(2)
+                    self.num_entry1.insert(END,"2 ")
+                    self.btn_2.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(2)
+                    self.num_entry2.insert(END,"2 ")
+                    self.btn_2.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(2)
+                self.num_entry3.insert(END,"2 ")
+                self.btn_2.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def three(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(3)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(3)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(3)
+                    self.num_entry1.insert(END,"3 ")
+                    self.btn_3.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(3)
+                    self.num_entry2.insert(END,"3 ")
+                    self.btn_3.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(3)
+                self.num_entry3.insert(END,"3 ")
+                self.btn_3.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def four(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(4)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(4)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(4)
+                    self.num_entry1.insert(END,"4 ")
+                    self.btn_4.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(4)
+                    self.num_entry2.insert(END,"4 ")
+                    self.btn_4.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(4)
-
+                self.num_entry3.insert(END,"4 ")
+                self.btn_4.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def five(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(5)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(5)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(5)
+                    self.num_entry1.insert(END,"5 ")
+                    self.btn_5.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(5)
+                    self.num_entry2.insert(END,"5 ")
+                    self.btn_5.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(5)
-
-
-        def six (self):
-            if len(self.empty1) < 7:
-                self.empty1.append(6)
-
-            elif len(self.empty2) < 7:
-                self.empty2.append(6)
+                self.num_entry3.insert(END,"5 ")
+                self.btn_5.config(state='disable')
             else:
+                messagebox.showinfo(title=None, message="Exceeded")
+
+        def six(self):
+            from tkinter import messagebox
+
+            if len(self.empty1) < 6:
+                    self.empty1.append(6)
+                    self.num_entry1.insert(END,"6 ")
+                    self.btn_6.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(6)
+                    self.num_entry2.insert(END,"6 ")
+                    self.btn_6.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(6)
-
-
-        def seven (self):
-            if len(self.empty1) < 7:
-                self.empty1.append(7)
-
-            elif len(self.empty2) < 7:
-                self.empty2.append(7)
+                self.num_entry3.insert(END,"6 ")
+                self.btn_6.config(state='disable')
             else:
+                messagebox.showinfo(title=None, message="Exceeded")
+
+        def seven(self):
+            from tkinter import messagebox
+
+            if len(self.empty1) < 6:
+                    self.empty1.append(7)
+                    self.num_entry1.insert(END,"7 ")
+                    self.btn_7.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(7)
+                    self.num_entry2.insert(END,"7 ")
+                    self.btn_7.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(7)
-        def eight(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(8)
-
-            elif len(self.empty2) < 7:
-                self.empty2.append(8)
+                self.num_entry3.insert(END,"7 ")
+                self.btn_7.config(state='disable')
             else:
-                self.empty3.append(8)
+                messagebox.showinfo(title=None, message="Exceeded")
 
+        def eight(self):
+            from tkinter import messagebox
+
+            if len(self.empty1) < 6:
+                    self.empty1.append(8)
+                    self.num_entry1.insert(END,"8 ")
+                    self.btn_8.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(8)
+                    self.num_entry2.insert(END,"8 ")
+                    self.btn_8.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
+                self.empty3.append(8)
+                self.num_entry3.insert(END,"8 ")
+                self.btn_8.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def nine(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(9)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(9)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(9)
+                    self.num_entry1.insert(END,"9 ")
+                    self.btn_9.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(9)
+                    self.num_entry2.insert(END,"9 ")
+                    self.btn_9.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(9)
-
+                self.num_entry3.insert(END,"9 ")
+                self.btn_9.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def ten(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(10)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(10)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(10)
+                    self.num_entry1.insert(END,"10 ")
+                    self.btn_10.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(10)
+                    self.num_entry2.insert(END,"10 " )
+                    self.btn_10.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(10)
-
+                self.num_entry3.insert(END,"10 ")
+                self.btn_10.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
 
         def eleven(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(11)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(11)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(11)
+                    self.num_entry1.insert(END,"11 " )
+                    self.btn_11.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(11)
+                    self.num_entry2.insert(END,"11 ")
+                    self.btn_11.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(11)
-
+                self.num_entry3.insert(END,"11 ")
+                self.btn_11.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twelve(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(12)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(12)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(12)
+                    self.num_entry1.insert(END,"12 ")
+                    self.btn_12.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(12)
+                    self.num_entry2.insert(END,"12 ")
+                    self.btn_12.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(12)
-
+                self.num_entry3.insert(END,"12 ")
+                self.btn_12.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(13)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(13)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(13)
+                    self.num_entry1.insert(END,"13 ")
+                    self.btn_13.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(13)
+                    self.num_entry2.insert(END,"13 ")
+                    self.btn_13.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(13)
-
-
+                self.num_entry3.insert(END,"13 ")
+                self.btn_13.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(14)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(14)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(14)
+                    self.num_entry1.insert(END,"14 ")
+                    self.btn_14.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(14)
+                    self.num_entry2.insert(END,"14 ")
+                    self.btn_14.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(14)
-
+                self.num_entry3.insert(END,"14 ")
+                self.btn_14.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fifteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(15)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(15)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(15)
+                    self.num_entry1.insert(END,"15 ")
+                    self.btn_15.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(15)
+                    self.num_entry2.insert(END,"15 ")
+                    self.btn_15.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(15)
+                self.num_entry3.insert(END,"15 ")
+                self.btn_15.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def sixteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(16)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(16)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(16)
+                    self.num_entry1.insert(END,"16 ")
+                    self.btn_16.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(16)
+                    self.num_entry2.insert(END,"16 ")
+                    self.btn_16.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(16)
+                self.num_entry3.insert(END,"16 ")
+                self.btn_16.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def seventeen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(17)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(17)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(17)
+                    self.num_entry1.insert(END,"17 ")
+                    self.btn_17.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(17)
+                    self.num_entry2.insert(END,"17")
+                    self.btn_17.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(17)
+                self.num_entry3.insert(END,'17 ')
+                self.btn_17.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def eighteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(18)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(18)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(18)
+                    self.num_entry1.insert(END,"18 ")
+                    self.btn_18.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(18)
+                    self.num_entry2.insert(END, "18 ")
+                    self.btn_18.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(18)
+                self.num_entry3.insert(END,"18 ")
+                self.btn_18.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def nineteen(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(19)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(19)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(19)
+                    self.num_entry1.insert(END,"19 ")
+                    self.btn_19.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(19)
+                    self.num_entry2.insert(END,"19 ")
+                    self.btn_19.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(19)
+                self.num_entry3.insert(END, "19 ")
+                self.btn_19.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(20)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(20)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(20)
+                    self.btn_20.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(20)
+                    self.btn_20.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(20)
-
-        def twenty_one(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(21)
-
-            elif len(self.empty2) < 7:
-                self.empty2.append(21)
+                self.btn_20.config(state='disable')
             else:
+                messagebox.showinfo(title=None, message="Exceeded")
+
+        def twenty_1(self):
+            from tkinter import messagebox
+
+            if len(self.empty1) < 6:
+                    self.empty1.append(21)
+                    self.btn_21.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(21)
+                    self.btn_21.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(21)
-
-
-        def twenty_two(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(22)
-
-            elif len(self.empty2) < 7:
-                self.empty2.append(22)
+                self.btn_21.config(state='disable')
             else:
+                messagebox.showinfo(title=None, message="Exceeded")
+
+        def twenty_2(self):
+            from tkinter import messagebox
+
+            if len(self.empty1) < 6:
+                    self.empty1.append(22)
+                    self.btn_22.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(22)
+                    self.btn_22.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(22)
+                self.btn_22.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_3(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(23)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(23)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(23)
+                    self.btn_23.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(23)
+                    self.btn_23.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(23)
-
+                self.btn_23.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_4(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(24)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(24)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(24)
+                    self.btn_24.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(24)
+                    self.btn_24.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(24)
-
+                self.btn_24.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_5(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(25)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(25)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(25)
+                    self.btn_25.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(25)
+                    self.btn_25.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(25)
+                self.btn_25.config(state = 'disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_6(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(26)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(26)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(26)
+                    self.btn_26.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(26)
+                    self.btn_26.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(26)
-
+                self.btn_26.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_7(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(27)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(27)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(27)
+                    self.btn_27.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(27)
+                    self.btn_27.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(27)
-
+                self.btn_27.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_8(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(28)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(28)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(28)
+                    self.btn_28.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(28)
+                    self.btn_28.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(28)
-
+                self.btn_28.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def twenty_9(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(29)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(29)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(29)
+                    self.btn_29.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(29)
+                    self.btn_29.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(29)
-
+                self.btn_29.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(30)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(30)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(30)
+                    self.btn_30.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(30)
+                    self.btn_30.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(30)
+                self.btn_30.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
 
         def thirty_1(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(31)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(31)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(31)
+                    self.btn_31.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(31)
+                    self.btn_31.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(31)
-
+                self.btn_31.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_2(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(32)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(32)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(32)
+                    self.btn_32.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(32)
+                    self.btn_32.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(32)
+                self.btn_32.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_3(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(33)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(33)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(33)
+                    self.btn_33.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(33)
+                    self.btn_33.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(33)
-
+                self.btn_33.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_4(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(34)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(34)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(34)
+                    self.btn_34.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(34)
+                    self.btn_34.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(34)
-
+                self.btn_34.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_5(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(35)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(35)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(35)
+                    self.btn_35.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(35)
+                    self.btn_35.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(35)
-
+                self.btn_35.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_6(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(36)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(36)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(36)
+                    self.btn_36.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(36)
+                    self.btn_36.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(36)
-
+                self.btn_36.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_7(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(37)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(37)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(37)
+                    self.btn_37.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(37)
+                    self.btn_37.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(37)
-
+                self.btn_37.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_8(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(38)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(38)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(38)
+                    self.btn_38.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(38)
+                    self.btn_1.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(38)
-
+                self.btn_1.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def thirty_9(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(39)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(39)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(39)
+                    self.btn_39.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(39)
+                    self.btn_39.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(39)
-
+                self.btn_39.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(40)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(40)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(40)
+                    self.btn_40.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(40)
+                    self.btn_40.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(40)
-
+                self.btn_40.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_1(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(41)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(41)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(41)
+                    self.btn_41.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(41)
+                    self.btn_41.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(41)
+                self.btn_41.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_2(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(42)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(42)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(42)
+                    self.btn_42.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(42)
+                    self.btn_42.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(42)
+                self.btn_42.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_3(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(43)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(43)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(43)
+                    self.btn_43.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(43)
+                    self.btn_43.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(43)
+                self.btn_43.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_4(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(44)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(44)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(44)
+                    self.btn_44.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(44)
+                    self.btn_44.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(44)
+                self.btn_44.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
 
         def fourty_5(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(45)
+            from tkinter import messagebox
 
-            elif  len(self.empty2) < 7:
-                self.empty2.append(45)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(45)
+                    self.btn_45.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(45)
+                    self.btn_45.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(45)
+                self.btn_45.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_6(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(46)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(46)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(46)
+                    self.btn_46.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(46)
+                    self.btn_46.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(46)
-
+                self.btn_46.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_7(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(47)
+            from tkinter import messagebox
 
-            elif len(self.empty2) < 7:
-                self.empty2.append(47)
-            else:
+            if len(self.empty1) < 6:
+                    self.empty1.append(47)
+                    self.btn_47.config(state='disable')
+
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(47)
+                    self.btn_47.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(47)
-
+                self.btn_47.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_8(self):
-            if len(self.empty1) < 7:
-                self.empty1.append(48)
+            from tkinter import messagebox
 
-            elif len(self.empty1) < 7:
+            if len(self.empty1) < 6:
+                    self.empty1.append(48)
+                    self.btn_48.config(state='disable')
 
-                self.empty2.append(48)
-            else:
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(48)
+                    self.btn_48.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(48)
-
+                self.btn_48.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
         def fourty_9(self):
-            if len(self.empty1) < 7:
+            from tkinter import messagebox
 
-                self.empty1.append(49)
+            if len(self.empty1) < 6:
+                    pick = self.empty1.append(49)
+                    self.btn_49.config(state='disable')
 
-            elif len(self.empty1) < 7:
-                self.empty2.append(49)
-            else:
+            elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
+                    self.empty2.append(49)
+                    self.btn_49.config(state='disable')
+
+            elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(49)
-
+                self.btn_49.config(state='disable')
+            else:
+                messagebox.showinfo(title=None, message="Exceeded")
 
 
         #play function
 
         def play(self):
 
-            if len(self.empty1) < 7:
+            if len(self.empty1) == 6:
                 for i in self.game_numbers:
                     if i in self.empty1:
                         self.compare.append(i)
 
-            elif len(self.empty2) < 7:
+            elif len(self.empty2) == 6:
                 for i in self.game_numbers:
                     if i in self.empty2:
                         self.compare.append(i)
 
             else:
-                if len(self.empty3) < 7:
+                if len(self.empty3) == 6:
                     for i in self.game_numbers:
                         if i in self.empty3:
                             self.compare.append(i)
 
-            self.num_entry1.insert(0,self.empty1)
-            self.results_entry1.insert(0,self.compare)
-            self.draw_entry1.insert(0,self.game_numbers)
-            self.num_entry1.config(state='readonly')
-            self.results_entry1.config(state='readonly')
-            self.draw_entry1.config(state='readonly')
+            if len(self.empty1) != 0:
+
+                #self.num_entry1.insert(0,self.empty1)
+                self.results_entry1.insert(0,self.compare)
+                self.draw_entry1.insert(0,self.game_numbers)
+                self.num_entry1.config(state='readonly')
+                self.results_entry1.config(state='readonly')
+                self.draw_entry1.config(state='readonly')
 
             if len(self.empty2) != 0:
 
-                self.num_entry2.insert(0,self.empty2)
+                #self.num_entry2.insert(0,self.empty2)
                 self.results_entry2.insert(0,self.compare)
                 self.draw_entry2.insert(0,self.game_numbers)
                 self.num_entry2.config(state='readonly')
@@ -754,31 +1170,95 @@ class Lotto_machine():
 
             if len(self.empty3) != 0:
 
-                self.num_entry3.insert(0,self.empty3)
+                #self.num_entry3.insert(0,self.empty3)
                 self.results_entry3.insert(0,self.compare)
                 self.draw_entry3.insert(0,self.game_numbers)
                 self.num_entry3.config(state='readonly')
                 self.results_entry3.config(state='readonly')
                 self.draw_entry3.config(state='readonly')
+        def clear(self):
+            self.num_entry1.config(state='normal')
+            self.results_entry1.config(state='normal')
+            self.draw_entry1.config(state='normal')
+
+            self.num_entry2.config(state='normal')
+            self.results_entry2.config(state='normal')
+            self.draw_entry2.config(state='normal')
+
+            self.num_entry3.config(state='normal')
+            self.results_entry3.config(state='normal')
+            self.draw_entry3.config(state='normal')
+
+            self.results_entry1.delete(0,END)
+            self.draw_entry1.delete(0,END)
+            self.num_entry1.delete(0,END)
+
+            self.results_entry2.delete(0,END)
+            self.draw_entry2.delete(0,END)
+            self.num_entry2.delete(0,END)
+
+            self.results_entry3.delete(0,END)
+            self.draw_entry3.delete(0,END)
+            self.num_entry3.delete(0,END)
+
+            self.btn_1.config(state='normal')
+            self.btn_2.config(state='normal')
+            self.btn_3.config(state='normal')
+            self.btn_4.config(state='normal')
+            self.btn_5.config(state='normal')
+            self.btn_6.config(state='normal')
+            self.btn_7.config(state='normal')
+            self.btn_8.config(state='normal')
+            self.btn_9.config(state='normal')
+            self.btn_10.config(state='normal')
+            self.btn_11.config(state='normal')
+            self.btn_12.config(state='normal')
+            self.btn_13.config(state='normal')
+            self.btn_14.config(state='normal')
+            self.btn_15.config(state='normal')
+            self.btn_16.config(state='normal')
+            self.btn_17.config(state='normal')
+            self.btn_18.config(state='normal')
+            self.btn_19.config(state='normal')
+            self.btn_20.config(state='normal')
+            self.btn_21.config(state='normal')
+            self.btn_22.config(state='normal')
+            self.btn_23.config(state='normal')
+            self.btn_24.config(state='normal')
+            self.btn_25.config(state='normal')
+            self.btn_26.config(state='normal')
+            self.btn_27.config(state='normal')
+            self.btn_28.config(state='normal')
+            self.btn_29.config(state='normal')
+            self.btn_30.config(state='normal')
+            self.btn_31.config(state='normal')
+            self.btn_32.config(state='normal')
+            self.btn_33.config(state='normal')
+            self.btn_34.config(state='normal')
+            self.btn_35.config(state='normal')
+            self.btn_36.config(state='normal')
+            self.btn_37.config(state='normal')
+            self.btn_38.config(state='normal')
+            self.btn_39.config(state='normal')
+            self.btn_40.config(state='normal')
+            self.btn_41.config(state='normal')
+            self.btn_42.config(state='normal')
+            self.btn_43.config(state='normal')
+            self.btn_44.config(state='normal')
+            self.btn_45.config(state='normal')
+            self.btn_46.config(state='normal')
+            self.btn_47.config(state='normal')
+            self.btn_48.config(state='normal')
+            self.btn_49.config(state='normal')
+
+            self.empty1.clear()
+            self.empty2.clear()
+            self.empty3.clear()
+            self.compare.clear()
 
 
-
-
-        def sort_random_list(self):
-            for i in range (1,len(self.game_numbers)):
-                j=i
-                while self.game_numbers[j-1] > self.game_numbers[j] and j>0:
-                    self.game_numbers[j-1], self.game_numbers[j]=self.game_numbers[j],self.game_numbers[j-1]
-                    j-=1
-
-
-            for i in range (1,len(self.g)):
-                j=i
-                while self.game_numbers[j-1] > self.game_numbers[j] and j>0:
-                    self.game_numbers[j-1], self.game_numbers[j]=self.game_numbers[j],self.game_numbers[j-1]
-                    j-=1
-
-
+        def claim(self):
+            import claim_prize
 
 
 

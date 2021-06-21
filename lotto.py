@@ -1,15 +1,18 @@
 from tkinter import *
 import random
 from tkinter import messagebox
+import datetime
+from playsound import playsound
 
-root=Tk()
-root.geometry("800x800")
+root = Tk()
+root.geometry("1000x1000")
 root.title("lotto")
 root.config(bg="yellow")
 
 
+class Lotto_Machine:
 
-class Lotto_machine():
+
         def __init__(self,slave):
             # Heading and 49 play buttons
             self.heading_label = Label(slave, text = "Pick 6 numbers", font="Consolas", bg="white")
@@ -150,9 +153,10 @@ class Lotto_machine():
             self.btn_48=Button(slave,text="48",width=3, command=self.fourty_8)
             self.btn_48.place(x=180,y=355)
 
-            self.btn_49=Button(slave,text="49",width=3, command=self.fourty_9)
+            self.btn_49 = Button(slave,text="49",width=3, command=self.fourty_9)
             self.btn_49.place(x=215,y=355)
 
+            self.x = str(datetime.datetime.now())
 
             # all the empty lists where results will be stored.
             self.empty1 =[]
@@ -160,15 +164,30 @@ class Lotto_machine():
             self.empty3 = []
             self.compare = []
 
+            # Winnings Dictionary
+            self.dict = {0:0, 1:0,2:20,3:100.5,4:2384,5:8584,6:10000000}
 
+            # Winnings block
+
+            self.winnings_heading = Label(slave, text="Your winnings", bg="white", width = 24)
+            self.winnings_heading.place(x=680, y=110)
 
             # first set of entries
-
 
             self.num_label1 =Label(slave, text="Numbers")
             self.num_label1.place(x=360, y=150)
             self.num_entry1=Entry(slave, width=28)
             self.num_entry1.place(x=420,y=150)
+            self.match_label = Label(slave,text="Matching numbers")
+            self.match_label.place(x=700, y=145)
+            self.match_entry1 = Entry(slave)
+            self.match_entry1.place(x=700, y=165)
+            self.match_entry1.config(state = "readonly")
+            self.wins_label = Label(slave, text="You won")
+            self.wins_label.place(x=700,y=200)
+            self.wins_entry1 = Entry(slave)
+            self.wins_entry1.config(state = 'readonly')
+            self.wins_entry1.place(x=700, y=220)
 
             self.draw_label1 = Label(slave, text="Draw")
             self.draw_label1.place(x=360,y=185)
@@ -176,11 +195,22 @@ class Lotto_machine():
             self.draw_entry1.place(x=420,y=185)
 
             self.results_label1 = Label(slave, text="Results", )
-            self.results_label1.place(x=360,y=250)
+            self.results_label1.place(x=360,y=220)
             self.results_entry1=Entry(slave, width=28)
-            self.results_entry1.place(x=420,y=250)
+            self.results_entry1.place(x=420,y=220)
 
             # Second set
+
+            self.match_label2 = Label(slave, text="Matching numbers")
+            self.match_label2.place(x=700, y=290)
+            self.match_entry2 = Entry(slave)
+            self.match_entry2.config(state = "readonly")
+            self.match_entry2.place(x=700, y=310)
+            self.wins_label2 = Label(slave, text="You won")
+            self.wins_label2.place(x=700, y=350)
+            self.wins_entry2 = Entry(slave)
+            self.wins_entry2.config(state = 'readonly')
+            self.wins_entry2.place(x=700, y=370)
 
             self.num_label2=Label(slave, text="Numbers")
             self.num_label2.place(x=360, y=300)
@@ -188,38 +218,52 @@ class Lotto_machine():
             self.num_entry2.place(x=420,y=300)
 
             self.draw_label2 = Label(slave, text="Draw")
-            self.draw_label2.place(x=360,y=350)
+            self.draw_label2.place(x=360,y=330)
             self.draw_entry2=Entry(slave,width=28)
-            self.draw_entry2.place(x=420,y=350)
+            self.draw_entry2.place(x=420,y=330)
 
             self.results_label2 = Label(slave, text="Results", )
-            self.results_label2.place(x=360,y=400)
+            self.results_label2.place(x=360,y=360)
             self.results_entry2 = Entry(slave, width=28)
-            self.results_entry2.place(x=420,y=400)
+            self.results_entry2.place(x=420,y=360)
 
             # Third set
 
-            self.num_label3 =Label(slave, text="Numbers")
-            self.num_label3.place(x=360, y=450)
+            self.match_label3 = Label(slave, text="Matching numbers")
+            self.match_label3.place(x=700, y=430)
+            self.match_entry3 = Entry(slave)
+            self.match_entry3.place(x=700, y=450)
+            self.match_entry3.config(state = 'readonly')
+            self.wins_label3 = Label(slave, text="You won")
+            self.wins_label3.place(x=700, y=480)
+            self.wins_entry3 = Entry(slave)
+            self.wins_entry3.place(x=700, y=500)
+            self.wins_entry3.config(state = 'readonly')
+
+            self.num_label3 = Label(slave, text="Numbers")
+            self.num_label3.place(x=360, y=430)
             self.num_entry3=Entry(slave, width=28)
-            self.num_entry3.place(x=420,y=450)
-            #self.num_entry3.config(state='readonly')
+            self.num_entry3.place(x=420,y=430)
+            # self.num_entry3.config(state='readonly')
 
             self.draw_label3 = Label(slave, text="Draw")
-            self.draw_label3.place(x=360,y=500)
+            self.draw_label3.place(x=360,y=460)
             self.draw_entry3=Entry(slave,width=28)
-            self.draw_entry3.place(x=420,y=500)
+            self.draw_entry3.place(x=420,y=460)
 
             self.results_label3 = Label(slave, text="Results", )
-            self.results_label3.place(x=360,y=550)
+            self.results_label3.place(x=360,y=495)
             self.results_entry3=Entry(slave, width=28)
-            self.results_entry3.place(x=420,y=550)
+            self.results_entry3.place(x=420,y=495)
 
+            # Totals entry
+            self.total_label = Label(slave, text = "Total winnings:", bg="white")
+            self.total_label.place(x=400, y=600)
+            self.total_entry = Entry(slave)
+            self.total_entry.place(x=500,y=600)
+            self.total_entry.config(state = 'readonly')
 
-
-
-            #play buttons
-
+            # play button
             self.play_btn = Button(slave,text="Play",command=self.play)
             self.play_btn.place(x=50,y=400)
 
@@ -228,9 +272,8 @@ class Lotto_machine():
             self.clear_btn.place(x=150,y=400)
 
             # claim button
-            self.claim_btn = Button(slave, text="Claim", command = self.claim())
-            self.claim_btn.place(x=400,y=400)
-
+            self.claim_btn = Button(slave, text="Claim", command = self.claim)
+            self.claim_btn.place(x=150,y=450)
 
             # Sample creates a sample without replacement
             self.game_numbers = random.sample(range(1, 49), 6) # creating 6 random numbers
@@ -240,14 +283,15 @@ class Lotto_machine():
             from tkinter import messagebox
 
             if len(self.empty1) < 6:
-                    self.empty1.append(1)
-                    self.num_entry1.insert(END,"1 ")
-                    self.btn_1.config(state='disable')
+                self.empty1.append(1)
+                self.num_entry1.insert(END,"1 ")
+                self.btn_1.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
-                    self.empty2.append(1)
-                    self.num_entry2.insert(END,"1 ")
-                    self.btn_1.config(state='disable')
+
+                self.empty2.append(1)
+                self.num_entry2.insert(END,"1 ")
+                self.btn_1.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(1)
@@ -622,14 +666,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(20)
+                    self.num_entry1.insert(END,'20 ')
                     self.btn_20.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(20)
+                    self.num_entry2.insert(END,'20 ')
                     self.btn_20.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(20)
+                self.num_entry3.insert(END,'20 ')
                 self.btn_20.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -639,14 +686,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(21)
+                    self.num_entry1.insert(END,'21 ')
                     self.btn_21.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(21)
+                    self.num_entry2.insert(END,'21 ')
                     self.btn_21.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(21)
+                self.num_entry3.insert(END,'21 ')
                 self.btn_21.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -656,14 +706,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(22)
+                    self.num_entry1.insert(END,'22 ')
                     self.btn_22.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(22)
+                    self.num_entry2.insert(END,'22 ')
                     self.btn_22.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(22)
+                self.num_entry3.insert(END,'22 ')
                 self.btn_22.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -673,14 +726,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(23)
+                    self.num_entry1.insert(END,'23 ')
                     self.btn_23.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(23)
+                    self.num_entry2.insert(END, '23 ')
                     self.btn_23.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(23)
+                self.num_entry3.insert(END, '23 ')
                 self.btn_23.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -690,14 +746,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(24)
+                    self.num_entry1.insert(END, '24 ')
                     self.btn_24.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(24)
+                    self.num_entry2.insert(END,'24 ')
                     self.btn_24.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(24)
+                self.num_entry3.insert(END,'24 ')
                 self.btn_24.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -707,14 +766,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(25)
+                    self.num_entry1.insert(END,'25 ')
                     self.btn_25.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(25)
+                    self.num_entry2.insert(END,'25 ')
                     self.btn_25.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(25)
+                self.num_entry3.insert(END,'25 ')
                 self.btn_25.config(state = 'disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -724,14 +786,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(26)
+                    self.num_entry1.insert(END,'26 ')
                     self.btn_26.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(26)
+                    self.num_entry2.insert(END, '26 ')
                     self.btn_26.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(26)
+                self.num_entry3.insert(END,'26 ')
                 self.btn_26.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -741,14 +806,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(27)
+                    self.num_entry1.insert(END, '27 ')
                     self.btn_27.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(27)
+                    self.num_entry2.insert(END, '27 ')
                     self.btn_27.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(27)
+                self.num_entry3.insert(END,'27 ')
                 self.btn_27.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -758,14 +826,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(28)
+                    self.num_entry1.insert(END, '28 ')
                     self.btn_28.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(28)
+                    self.num_entry2.insert(END,'28 ')
                     self.btn_28.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(28)
+                self.num_entry3.insert(END,'28 ')
                 self.btn_28.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -775,14 +846,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(29)
+                    self.num_entry1.insert(END,'29 ')
                     self.btn_29.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(29)
+                    self.num_entry2.insert(END,'29 ')
                     self.btn_29.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(29)
+                self.num_entry3.insert(END, '29 ')
                 self.btn_29.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -792,14 +866,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(30)
+                    self.num_entry1.insert(END, '30 ')
                     self.btn_30.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(30)
+                    self.num_entry2.insert(END, '30 ')
                     self.btn_30.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(30)
+                self.num_entry3.insert(END,'30 ')
                 self.btn_30.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -810,14 +887,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(31)
+                    self.num_entry1.insert(END,'31 ')
                     self.btn_31.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(31)
+                    self.num_entry2.insert(END,'31 ')
                     self.btn_31.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(31)
+                self.num_entry3.insert(END,'31 ')
                 self.btn_31.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -827,14 +907,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(32)
+                    self.num_entry1.insert(END,'32 ')
                     self.btn_32.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(32)
+                    self.num_entry2.insert(END,'32 ')
                     self.btn_32.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(32)
+                self.num_entry3.insert(END,'32 ')
                 self.btn_32.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -844,14 +927,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(33)
+                    self.num_entry1.insert(END,'33 ')
                     self.btn_33.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(33)
+                    self.num_entry2.insert(END,'33 ')
                     self.btn_33.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(33)
+                self.num_entry3.insert(END,'33 ')
                 self.btn_33.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -861,14 +947,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(34)
+                    self.num_entry1.insert(END,'34 ')
                     self.btn_34.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(34)
+                    self.num_entry2.insert(END,'34 ')
                     self.btn_34.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(34)
+                self.num_entry3.insert(END,'34')
                 self.btn_34.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -878,14 +967,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(35)
+                    self.num_entry1.insert(END,'35 ')
                     self.btn_35.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(35)
+                    self.num_entry2.insert(END,'35 ')
                     self.btn_35.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(35)
+                self.num_entry3.insert(END,'35 ')
                 self.btn_35.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -895,14 +987,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(36)
+                    self.num_entry1.insert(END,'36 ')
                     self.btn_36.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(36)
+                    self.num_entry2.insert(END,'36 ')
                     self.btn_36.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(36)
+                self.num_entry3.insert(END,'36 ')
                 self.btn_36.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -912,14 +1007,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(37)
+                    self.num_entry1.insert(END,'37 ')
                     self.btn_37.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(37)
+                    self.num_entry2.insert(END,'37 ')
                     self.btn_37.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(37)
+                self.num_entry3.insert(END,'37 ')
                 self.btn_37.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -929,14 +1027,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(38)
+                    self.num_entry1.insert(END,'38 ')
                     self.btn_38.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(38)
+                    self.num_entry2.insert(END,'38 ')
                     self.btn_1.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(38)
+                self.num_entry3.insert(END,'38 ')
                 self.btn_1.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -946,14 +1047,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(39)
+                    self.num_entry1.insert(END,'39 ')
                     self.btn_39.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(39)
+                    self.num_entry2.insert(END,'39 ')
                     self.btn_39.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(39)
+                self.num_entry3.insert(END,'39 ')
                 self.btn_39.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -963,14 +1067,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(40)
+                    self.num_entry1.insert(END,'40 ')
                     self.btn_40.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(40)
+                    self.num_entry2.insert(END,'40 ')
                     self.btn_40.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(40)
+                self.num_entry3.insert(END,'40 ')
                 self.btn_40.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -980,14 +1087,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(41)
+                    self.num_entry1.insert(END,'41 ')
                     self.btn_41.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(41)
+                    self.num_entry2.insert(END,'41 ')
                     self.btn_41.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(41)
+                self.num_entry3.insert(END,'41 ')
                 self.btn_41.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -997,14 +1107,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(42)
+                    self.num_entry1.insert(END,'42 ')
                     self.btn_42.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(42)
+                    self.num_entry2.insert(END,'42 ')
                     self.btn_42.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(42)
+                self.num_entry3.insert(END,'41 ')
                 self.btn_42.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1014,14 +1127,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(43)
+                    self.num_entry1.insert(END,'43 ')
                     self.btn_43.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(43)
+                    self.num_entry2.insert(END,'43 ')
                     self.btn_43.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(43)
+                self.num_entry3.insert(END,'43 ')
                 self.btn_43.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1031,14 +1147,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(44)
+                    self.num_entry1.insert(END,'44 ')
                     self.btn_44.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(44)
+                    self.num_entry2.insert(END,'44 ')
                     self.btn_44.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(44)
+                self.num_entry3.insert(END,'44 ')
                 self.btn_44.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1049,14 +1168,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(45)
+                    self.num_entry1.insert(END,'45 ')
                     self.btn_45.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(45)
+                    self.num_entry2.insert(END,'45 ')
                     self.btn_45.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(45)
+                self.num_entry3.insert(END,'45 ')
                 self.btn_45.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1066,14 +1188,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(46)
+                    self.num_entry1.insert(END,'46 ')
                     self.btn_46.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(46)
+                    self.num_entry2.insert(END,'46 ')
                     self.btn_46.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(46)
+                self.num_entry3.insert(END,'46 ')
                 self.btn_46.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1083,14 +1208,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(47)
+                    self.num_entry1.insert(END,'47 ')
                     self.btn_47.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(47)
+                    self.num_entry2.insert(END,'47 ')
                     self.btn_47.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(47)
+                self.num_entry3.insert(END,'47 ')
                 self.btn_47.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1100,14 +1228,17 @@ class Lotto_machine():
 
             if len(self.empty1) < 6:
                     self.empty1.append(48)
+                    self.num_entry1.insert(END,'48 ')
                     self.btn_48.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(48)
+                    self.num_entry2.insert(END,'48 ')
                     self.btn_48.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(48)
+                self.num_entry3.insert(END,'48 ')
                 self.btn_48.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
@@ -1116,66 +1247,118 @@ class Lotto_machine():
             from tkinter import messagebox
 
             if len(self.empty1) < 6:
-                    pick = self.empty1.append(49)
+                    self.empty1.append(49)
+                    self.num_entry1.insert(END,'49 ')
                     self.btn_49.config(state='disable')
 
             elif  len(self.empty1) ==6 and len(self.empty2) < 6 :
                     self.empty2.append(49)
+                    self.num_entry2.insert(END,'49 ')
                     self.btn_49.config(state='disable')
 
             elif len(self.empty2) == 6 and len(self.empty3) < 6:
                 self.empty3.append(49)
+                self.num_entry3.insert(END,'49 ')
                 self.btn_49.config(state='disable')
             else:
                 messagebox.showinfo(title=None, message="Exceeded")
 
 
         #play function
-
         def play(self):
+            self.match_entry1.config(state = 'normal')
+            self.match_entry2.config( state = 'normal')
+            self.match_entry3.config(state = 'normal')
+            self.wins_entry1.config(state = 'normal')
+            self.wins_entry2.config(state = 'normal')
+            self.wins_entry3.config(state = 'normal')
+            self.total_entry.config(state = 'normal')
 
-            if len(self.empty1) == 6:
+            if len(self.empty1) == 6 and len(self.empty1) !=0:
                 for i in self.game_numbers:
                     if i in self.empty1:
                         self.compare.append(i)
+                for i in self.dict:
+                    if i == len(self.compare):
+                        self.wins_entry1.insert(0,self.dict[i])
 
-            elif len(self.empty2) == 6:
-                for i in self.game_numbers:
-                    if i in self.empty2:
-                        self.compare.append(i)
-
-            else:
-                if len(self.empty3) == 6:
-                    for i in self.game_numbers:
-                        if i in self.empty3:
-                            self.compare.append(i)
-
-            if len(self.empty1) != 0:
-
-                #self.num_entry1.insert(0,self.empty1)
-                self.results_entry1.insert(0,self.compare)
-                self.draw_entry1.insert(0,self.game_numbers)
+                self.results_entry1.insert(0, self.compare)
+                self.draw_entry1.insert(0, self.game_numbers)
+                self.match_entry1.insert(0,len(self.compare))
                 self.num_entry1.config(state='readonly')
                 self.results_entry1.config(state='readonly')
                 self.draw_entry1.config(state='readonly')
+                f = open("details.txt", "a")
+                f.write("Date: " + self.x + "\n" )
+                f.write("Numbers you played for set1: " + self.num_entry1.get() + "\n")
+                f.write("Lotto numbers for set1: " + self.draw_entry1.get() + "\n")
+                f.write(" Winning numbers for set1: " + " " + self.draw_entry1.get() + "\n")
+                f.write("matching numbers for set1: " + " " + self.match_entry1.get() + "\n")
+                f.write("Your money for set1: " +" " + self.wins_entry1.get()+ "\n")
+                f.write("\n")
+                f.close()
 
-            if len(self.empty2) != 0:
+                if len(self.empty2) == 6 and len(self.empty2) !=0:
+                    self.compare.clear()
+                    for i in self.game_numbers:
+                        if i in self.empty2:
+                            self.compare.append(i)
+                    for i in self.dict:
+                        if i == len(self.compare):
+                            self.wins_entry2.insert(0, self.dict[i])
 
-                #self.num_entry2.insert(0,self.empty2)
-                self.results_entry2.insert(0,self.compare)
-                self.draw_entry2.insert(0,self.game_numbers)
-                self.num_entry2.config(state='readonly')
-                self.results_entry2.config(state='readonly')
-                self.draw_entry2.config(state='readonly')
+                    self.results_entry2.insert(0, self.compare)
+                    self.draw_entry2.insert(0, self.game_numbers)
+                    self.match_entry2.insert(0,len(self.compare))
+                    self.num_entry2.config(state='readonly')
+                    self.results_entry2.config(state='readonly')
+                    self.draw_entry2.config(state='readonly')
+                    f = open("details.txt", "a")
+                    f.write("Numbers you played for set2: " + self.num_entry2.get() + "\n")
+                    f.write("Lotto numbers for set2: " + self.draw_entry2.get() + "\n")
+                    f.write(" Winning numbers for set2: " + " " + self.draw_entry2.get() + "\n")
+                    f.write("matching numbers for set2: " + " " + self.match_entry2.get() + "\n")
+                    f.write("Your money for set2: " + " " + self.wins_entry2.get() + "\n")
+                    f.write("\n")
+                    f.close()
 
-            if len(self.empty3) != 0:
+                    if len(self.empty3) == 6 and len(self.empty3) !=0:
+                        self.compare.clear()
+                        for i in self.game_numbers:
+                            if i in self.empty3:
+                                self.compare.append(i)
+                        for i in self.dict:
+                            if i == len(self.compare):
+                                self.wins_entry3.insert(0, self.dict[i])
+                        self.results_entry3.insert(0, self.compare)
+                        self.draw_entry3.insert(0, self.game_numbers)
+                        self.match_entry3.insert(0,len(self.compare))
+                        self.num_entry3.config(state='readonly')
+                        self.results_entry3.config(state='readonly')
+                        self.draw_entry3.config(state='readonly')
+                        f = open("details.txt", "a")
+                        f.write("Numbers you played for set3: " + self.num_entry3.get()+ "\n")
+                        f.write("Lotto numbers for set3: " + self.draw_entry3.get() + "\n")
+                        f.write(" Winning numbers for set3: " + " " + self.draw_entry3.get() + "\n")
+                        f.write("matching numbers for set3: " + " " + self.match_entry3.get() + "\n")
+                        f.write("Your money for set3: " + " " + self.wins_entry3.get() + "\n")
+                        f.write("\n")
+                        f.close()
+                    total = float(self.wins_entry1.get()) + float(self.wins_entry2.get()) + float(self.wins_entry3.get())
+                    self.total_entry.insert(0,total)
+            else:
+                if len(self.num_entry1.get()) == 0 and len(self.num_entry2.get()) == 0 and len(self.num_entry3.get()) == 0:
+                    messagebox.showwarning(title="Select", message="Please select 6 numbers to play")
+                    self.match_entry1.config(state = 'readonly')
+                    self.match_entry2.config(state = 'readonly')
+                    self.match_entry3.config(state = 'readonly')
+                    self.wins_entry1.config(state = 'readonly')
+                    self.wins_entry2.config(state = 'readonly')
+                    self.wins_entry3.config(state = 'readonly')
 
-                #self.num_entry3.insert(0,self.empty3)
-                self.results_entry3.insert(0,self.compare)
-                self.draw_entry3.insert(0,self.game_numbers)
-                self.num_entry3.config(state='readonly')
-                self.results_entry3.config(state='readonly')
-                self.draw_entry3.config(state='readonly')
+
+
+
         def clear(self):
             self.num_entry1.config(state='normal')
             self.results_entry1.config(state='normal')
@@ -1200,6 +1383,15 @@ class Lotto_machine():
             self.results_entry3.delete(0,END)
             self.draw_entry3.delete(0,END)
             self.num_entry3.delete(0,END)
+
+            self.wins_entry1.delete(0,END)
+            self.wins_entry2.delete(0,END)
+            self.wins_entry3.delete(0,END)
+            self.match_entry1.delete(0,END)
+            self.match_entry2.delete(0,END)
+            self.match_entry3.delete(0,END)
+
+            self.total_entry.delete(0,END)
 
             self.btn_1.config(state='normal')
             self.btn_2.config(state='normal')
@@ -1258,16 +1450,17 @@ class Lotto_machine():
 
 
         def claim(self):
-            import claim_prize
+            if len(self.num_entry1.get()) == 0 and len(self.wins_entry2.get()) <= 0 and len(self.num_entry3.get()) == 0:
+                messagebox.showwarning(title="Select", message="Please select numbers to play")
+            elif len(self.wins_entry1.get()) == 1 and len(self.wins_entry2.get()) == 1 and len(self.wins_entry3.get()) == 1:
+                messagebox.showwarning(title="Lost!", message="Sorry you have not won, please play again.")
+            else:
+                messagebox.showinfo(title="Congragulations", message="Congragulations! You win!")
+                playsound("winsound.wav")
+                import claim_prize
+                root.destroy()
 
 
 
-
-
-
-
-
-
-
-y=Lotto_machine(root)
+y=Lotto_Machine(root)
 root.mainloop()

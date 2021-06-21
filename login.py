@@ -77,6 +77,7 @@ class Login():
                 playsound("login.wav")
                 messagebox.showinfo(title="Play!", message="Lets Play!")
                 import lotto
+                root.withdraw()
                 root.destroy()
             #elif int(year2) >3 and int(year2) > 21:
                 #messagebox.showinfo(title="Play!", message="Lets Play!")
@@ -91,6 +92,7 @@ class Login():
             playsound('stop.wav')
             messagebox.showerror(title="Invalid Id", message="Please enter valid ID")
             self.id_entry.delete(0,END)
+        root.destroy()
 
 class Get(Login):
     def name1 (self):

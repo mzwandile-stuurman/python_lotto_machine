@@ -174,4 +174,110 @@ Your money for set3:  20
 
 Acount holder:  mzwandile stuurmanBank: FNB
 Account number: 8787450985
-Amount:
+Amount:User name:  mzwandile
+User Surname:  stuurman
+User email:  stuurmanmzwandile@gmail.com
+User Id:  9406166602086
+
+User name:  mzwandile
+User Surname:  stuurman
+User email:  stuurmanmzwandile@gmail.com
+User Id:  9606166602086
+
+User Id:  9606166602086
+
+Date: 2021-06-21 16:14:11.404749
+Numbers you played for set1: 11 12 13 20 17 16 
+Lotto numbers for set1: 45 10 21 32 37 20
+ Winning numbers for set1:  45 10 21 32 37 20
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 24 26 28 41 39 38 
+Lotto numbers for set2: 45 10 21 32 37 20
+ Winning numbers for set2:  45 10 21 32 37 20
+matching numbers for set2:  0
+Your money for set2:  0
+
+Numbers you played for set3: 2 7 41 22 44 46 
+Lotto numbers for set3: 45 10 21 32 37 20
+ Winning numbers for set3:  45 10 21 32 37 20
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-21 16:19:25.172054
+Numbers you played for set1: 19 25 10 9 7 28 
+Lotto numbers for set1: 32 13 31 33 41 2
+ Winning numbers for set1:  32 13 31 33 41 2
+matching numbers for set1:  0
+Your money for set1:  0
+
+Numbers you played for set2: 31 22 29 34 33 16 
+Lotto numbers for set2: 32 13 31 33 41 2
+ Winning numbers for set2:  32 13 31 33 41 2
+matching numbers for set2:  2
+Your money for set2:  20
+
+Numbers you played for set3: 38 46 44 36 35 6 
+Lotto numbers for set3: 32 13 31 33 41 2
+ Winning numbers for set3:  32 13 31 33 41 2
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-21 16:20:35.563798
+Numbers you played for set1: 2 10 11 12 19 26 
+Lotto numbers for set1: 30 33 23 26 46 27
+ Winning numbers for set1:  30 33 23 26 46 27
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 25 24 31 32 33 34 
+Lotto numbers for set2: 30 33 23 26 46 27
+ Winning numbers for set2:  30 33 23 26 46 27
+matching numbers for set2:  1
+Your money for set2:  0
+
+Numbers you played for set3: 41 40 39 38 37 44 
+Lotto numbers for set3: 30 33 23 26 46 27
+ Winning numbers for set3:  30 33 23 26 46 27
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-21 16:20:35.563798
+Numbers you played for set1: 3 4 11 18 19 20 
+Lotto numbers for set1: 30 33 23 26 46 27
+ Winning numbers for set1:  30 33 23 26 46 27
+matching numbers for set1:  0
+Your money for set1:  0
+
+Numbers you played for set2: 21 25 24 23 22 38 
+Lotto numbers for set2: 30 33 23 26 46 27
+ Winning numbers for set2:  30 33 23 26 46 27
+matching numbers for set2:  1
+Your money for set2:  0
+
+Numbers you played for set3: 39 40 41 41 46 45 
+Lotto numbers for set3: 30 33 23 26 46 27
+ Winning numbers for set3:  30 33 23 26 46 27
+matching numbers for set3:  1
+Your money for set3:  0
+
+Date: 2021-06-21 16:20:35.563798
+Numbers you played for set1: 33 24 23 9 4 11 
+Lotto numbers for set1: 30 33 23 26 46 27
+ Winning numbers for set1:  30 33 23 26 46 27
+matching numbers for set1:  2
+Your money for set1:  20
+
+Numbers you played for set2: 18 25 32 39 38 29 
+Lotto numbers for set2: 30 33 23 26 46 27
+ Winning numbers for set2:  30 33 23 26 46 27
+matching numbers for set2:  0
+Your money for set2:  0
+
+Numbers you played for set3: 22 15 21 28 35 40 
+Lotto numbers for set3: 30 33 23 26 46 27
+ Winning numbers for set3:  30 33 23 26 46 27
+matching numbers for set3:  0
+Your money for set3:  0
+

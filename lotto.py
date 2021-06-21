@@ -1443,6 +1443,16 @@ class Lotto_Machine:
             self.btn_48.config(state='normal')
             self.btn_49.config(state='normal')
 
+            self.match_entry1.config(state = 'readonly')
+            self.match_entry2.config(state = 'readonly')
+            self.match_entry3.config(state = 'readonly')
+            self.wins_entry1.config(state = 'readonly')
+            self.wins_entry2.config(state = 'readonly')
+            self.wins_entry3.config(state = 'readonly')
+            self.total_entry.config(state = 'readonly')
+
+
+
             self.empty1.clear()
             self.empty2.clear()
             self.empty3.clear()
@@ -1450,9 +1460,9 @@ class Lotto_Machine:
 
 
         def claim(self):
-            if len(self.num_entry1.get()) == 0 and len(self.wins_entry2.get()) <= 0 and len(self.num_entry3.get()) == 0:
+            if len(self.num_entry1.get()) == 0 and len(self.wins_entry2.get()) == 0 and len(self.num_entry3.get()) == 0:
                 messagebox.showwarning(title="Select", message="Please select numbers to play")
-            elif len(self.wins_entry1.get()) == 1 and len(self.wins_entry2.get()) == 1 and len(self.wins_entry3.get()) == 1:
+            elif len(self.wins_entry1.get()) <= 1 and len(self.wins_entry2.get()) <= 1 and len(self.wins_entry3.get()) <= 1:
                 messagebox.showwarning(title="Lost!", message="Sorry you have not won, please play again.")
             else:
                 messagebox.showinfo(title="Congragulations", message="Congragulations! You win!")

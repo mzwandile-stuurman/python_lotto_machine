@@ -16,7 +16,7 @@ class Prize_claim():
         self.bank_label = Label(master, text= "Bank: ")
         self.bank_label.place(x=20,y=40)
 
-        self.banks_list = ttk.Combobox(master, text="Choose a bank.")
+        self.banks_list = ttk.Combobox(master, text="Choose a bank.") # combobox for bank choices
         self.banks_list['values'] = ('ABSA','FNB','CAPITEC','STANDARD BANK')
         self.banks_list.current()
         self.banks_list.place(x=100,y=40)
@@ -54,7 +54,7 @@ class Prize_claim():
 
         self.exit_btn = Button(master, text = 'Exit')
         self.exit_btn.place(x= 250, y=400)
-
+    # Function for checking the email.
     def mail_check(self):
         if "@" in self.email_entry.get():
             self.acount_entry.config(state='normal')
@@ -64,7 +64,7 @@ class Prize_claim():
             self.acount_entry.config(state='readonly')
             self.email_entry.delete(0,END)
 
-
+    # function to send the email and the winners information
     def emailer(self):
         import smtplib
         from email.mime.text import MIMEText
@@ -96,7 +96,7 @@ class Prize_claim():
         # terminating the session
         s.quit()
 
-        f = open("details.txt", "a")
+        f = open("details.txt", "a") # appending all the information to a text file
         f.write("Acount holder: " + " " + self.winner_name_entry.get() + " " + self.surname_entry.get())
         f.write("Bank: " + self.banks_list.get() + "\n")
         f.write("Account number: " + self.acount_entry.get() + "\n")

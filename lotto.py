@@ -1274,21 +1274,21 @@ class Lotto_Machine:
             self.wins_entry3.config(state = 'normal')
             self.total_entry.config(state = 'normal')
 
-            if len(self.empty1) == 6 and len(self.empty1) !=0:
+            if len(self.empty1) == 6 and len(self.empty1) !=0: # keep the numbers on the entry to 6
                 for i in self.game_numbers:
                     if i in self.empty1:
-                        self.compare.append(i)
+                        self.compare.append(i) # append the numbers that are on the lucky numbers
                 for i in self.dict:
                     if i == len(self.compare):
-                        self.wins_entry1.insert(0,self.dict[i])
+                        self.wins_entry1.insert(0,self.dict[i]) # showing how the number of wining numbers
 
-                self.results_entry1.insert(0, self.compare)
+                self.results_entry1.insert(0, self.compare) # place all  the numbers in the necessary entries
                 self.draw_entry1.insert(0, self.game_numbers)
                 self.match_entry1.insert(0,len(self.compare))
                 self.num_entry1.config(state='readonly')
                 self.results_entry1.config(state='readonly')
                 self.draw_entry1.config(state='readonly')
-                f = open("details.txt", "a")
+                f = open("details.txt", "a")  # write all the information on the text file
                 f.write("Date: " + self.x + "\n" )
                 f.write("Numbers you played for set1: " + self.num_entry1.get() + "\n")
                 f.write("Lotto numbers for set1: " + self.draw_entry1.get() + "\n")
@@ -1357,9 +1357,11 @@ class Lotto_Machine:
                     self.wins_entry3.config(state = 'readonly')
 
 
-
+        # the play again function
 
         def clear(self):
+
+            # this fucntion clears all the entries and the empty lists
             self.num_entry1.config(state='normal')
             self.results_entry1.config(state='normal')
             self.draw_entry1.config(state='normal')
@@ -1458,7 +1460,7 @@ class Lotto_Machine:
             self.empty3.clear()
             self.compare.clear()
 
-
+        # this is the claim the function
         def claim(self):
             if len(self.num_entry1.get()) == 0 and len(self.wins_entry2.get()) == 0 and len(self.num_entry3.get()) == 0:
                 messagebox.showwarning(title="Select", message="Please select numbers to play")

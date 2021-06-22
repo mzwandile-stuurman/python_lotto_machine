@@ -1,3 +1,4 @@
+# test for the random numbers
 import unittest, random
 def randomnumbers():
     x = random.sample(range(1,49),6)

@@ -42,7 +42,7 @@ class Login():
         surname = self.surname_entry.get()
         email = str(self.email_entry.get())
 
-        if "@" in self.email_entry.get():
+        if "@" in self.email_entry.get(): # catching the possibility of an invalid email.
             self.id_entry.config(state='normal')
 
         else:
@@ -52,7 +52,7 @@ class Login():
             self.email_entry.delete(0,END)
 
 
-        f = open("details.txt","a")
+        f = open("details.txt","a") # append the information to a text file
         f.writelines("User name: "+ " " + self.name_entry.get() + "\n" )
         f.writelines("User Surname: " + " " + self.surname_entry.get() + "\n")
         f.writelines("User email: " + " " + self.email_entry.get() + "\n")
@@ -73,7 +73,7 @@ class Login():
 
             if type(Id) == type(str()) or len(id_ls) != 13:
                 raise ValueError
-            elif int(year) <= 3 or int(year2) > 3 and int(year2) > 21:
+            elif int(year) <= 3 or int(year2) > 3 and int(year2) > 21: # make sure the age is 18 and older
                 playsound("login.wav")
                 messagebox.showinfo(title="Play!", message="Lets Play!")
                 import lotto

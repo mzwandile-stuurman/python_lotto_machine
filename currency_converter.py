@@ -20,7 +20,6 @@ conversion_rate = information_json['conversion_rates']
 
 # Creating a label and entries
 
-
 my_label1 = Label(root, text="Winnings", )
 my_label1.place(x=5, y=10)
 
@@ -57,7 +56,6 @@ def exit_program():
     root.destroy()
 
 # creating btn
-
 
 convert_btn = Button(root, command=converting, text="CONVERT", font=10, bg="purple", fg="white")
 convert_btn.place(x=5, y=300)

@@ -163,6 +163,7 @@ class Lotto_Machine:
             self.empty2 = []
             self.empty3 = []
             self.compare = []
+            self.totals = []
 
             # Winnings Dictionary
             self.dict = {0:0, 1:0,2:20,3:100.5,4:2384,5:8584,6:10000000}
@@ -1313,6 +1314,7 @@ class Lotto_Machine:
                     self.num_entry2.config(state='readonly')
                     self.results_entry2.config(state='readonly')
                     self.draw_entry2.config(state='readonly')
+
                     f = open("details.txt", "a")
                     f.write("Numbers you played for set2: " + self.num_entry2.get() + "\n")
                     f.write("Lotto numbers for set2: " + self.draw_entry2.get() + "\n")
@@ -1336,6 +1338,7 @@ class Lotto_Machine:
                         self.num_entry3.config(state='readonly')
                         self.results_entry3.config(state='readonly')
                         self.draw_entry3.config(state='readonly')
+
                         f = open("details.txt", "a")
                         f.write("Numbers you played for set3: " + self.num_entry3.get()+ "\n")
                         f.write("Lotto numbers for set3: " + self.draw_entry3.get() + "\n")
@@ -1344,8 +1347,24 @@ class Lotto_Machine:
                         f.write("Your money for set3: " + " " + self.wins_entry3.get() + "\n")
                         f.write("\n")
                         f.close()
-                    total = float(self.wins_entry1.get()) + float(self.wins_entry2.get()) + float(self.wins_entry3.get())
-                    self.total_entry.insert(0,total)
+
+                    if len(self.wins_entry1.get()) > 0 :
+                        total1 = float(self.wins_entry1.get())
+                        self.totals.append(total1)
+                        #self.total_entry.insert(0,total1)
+
+                        if len(self.wins_entry2.get())>0:
+                            total2 = float(self.wins_entry2.get())
+                            self.totals.append(total2)
+                        #self.total_entry.insert(0,total2)
+
+                            if len(self.wins_entry3.get()) > 0:
+                                total3 = float(self.wins_entry3.get())
+                                self.totals.append(total3)
+                                #self.total_entry.insert(0,total3)
+                sum_totals = sum(self.totals)
+                self.total_entry.insert(0,sum_totals)
+
             else:
                 if len(self.num_entry1.get()) == 0 and len(self.num_entry2.get()) == 0 and len(self.num_entry3.get()) == 0:
                     messagebox.showwarning(title="Select", message="Please select 6 numbers to play")
@@ -1459,6 +1478,7 @@ class Lotto_Machine:
             self.empty2.clear()
             self.empty3.clear()
             self.compare.clear()
+            self.totals.clear()
 
         # this is the claim the function
         def claim(self):

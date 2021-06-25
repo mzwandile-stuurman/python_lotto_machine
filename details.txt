@@ -405,3 +405,175 @@ Lotto numbers for set3: 26 43 29 22 45 28
 matching numbers for set3:  0
 Your money for set3:  0
 
+Date: 2021-06-25 08:31:40.931307
+Numbers you played for set1: 6 12 17 18 21 27 
+Lotto numbers for set1: 4 23 22 17 16 35
+ Winning numbers for set1:  4 23 22 17 16 35
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 24 39 34 35 28 25 
+Lotto numbers for set2: 4 23 22 17 16 35
+ Winning numbers for set2:  4 23 22 17 16 35
+matching numbers for set2:  1
+Your money for set2:  0
+
+Numbers you played for set3: 23 31 32 40 41 41 
+Lotto numbers for set3: 4 23 22 17 16 35
+ Winning numbers for set3:  4 23 22 17 16 35
+matching numbers for set3:  1
+Your money for set3:  0
+
+Date: 2021-06-25 08:31:40.931307
+Numbers you played for set1: 34 26 18 13 14 5 
+Lotto numbers for set1: 4 23 22 17 16 35
+ Winning numbers for set1:  4 23 22 17 16 35
+matching numbers for set1:  0
+Your money for set1:  0
+
+Date: 2021-06-25 10:08:00.939560
+Numbers you played for set1: 6 5 4 3 2 1 
+Lotto numbers for set1: 6 13 15 5 43 46
+ Winning numbers for set1:  6 13 15 5 43 46
+matching numbers for set1:  2
+Your money for set1:  20
+
+Date: 2021-06-25 10:12:26.643389
+Numbers you played for set1: 5 4 3 2 6 7 
+Lotto numbers for set1: 23 13 48 24 40 3
+ Winning numbers for set1:  23 13 48 24 40 3
+matching numbers for set1:  1
+Your money for set1:  0
+
+Date: 2021-06-25 10:12:26.643389
+Numbers you played for set1: 33 25 24 16 10 12 
+Lotto numbers for set1: 23 13 48 24 40 3
+ Winning numbers for set1:  23 13 48 24 40 3
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 14 20 28 23 15 18 
+Lotto numbers for set2: 23 13 48 24 40 3
+ Winning numbers for set2:  23 13 48 24 40 3
+matching numbers for set2:  1
+Your money for set2:  0
+
+Numbers you played for set3: 32 37 29 38 39 40 
+Lotto numbers for set3: 23 13 48 24 40 3
+ Winning numbers for set3:  23 13 48 24 40 3
+matching numbers for set3:  1
+Your money for set3:  0
+
+Date: 2021-06-25 10:16:00.960894
+Numbers you played for set1: 6 7 4 3 2 10 
+Lotto numbers for set1: 17 26 20 28 24 1
+ Winning numbers for set1:  17 26 20 28 24 1
+matching numbers for set1:  0
+Your money for set1:  0
+
+Numbers you played for set2: 11 13 12 14 21 20 
+Lotto numbers for set2: 17 26 20 28 24 1
+ Winning numbers for set2:  17 26 20 28 24 1
+matching numbers for set2:  1
+Your money for set2:  0
+
+Date: 2021-06-25 10:16:00.960894
+Numbers you played for set1: 18 24 22 30 33 27 
+Lotto numbers for set1: 17 26 20 28 24 1
+ Winning numbers for set1:  17 26 20 28 24 1
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 35 42 48 47 38 37 
+Lotto numbers for set2: 17 26 20 28 24 1
+ Winning numbers for set2:  17 26 20 28 24 1
+matching numbers for set2:  0
+Your money for set2:  0
+
+Numbers you played for set3: 36 15 7 21 11 10 
+Lotto numbers for set3: 17 26 20 28 24 1
+ Winning numbers for set3:  17 26 20 28 24 1
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 3 4 19 25 23 30 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  0
+Your money for set1:  0
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 11 18 16 15 21 20 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  0
+Your money for set1:  0
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 25 33 32 31 30 28 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  2
+Your money for set1:  20
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 26 16 12 7 1 36 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  0
+Your money for set1:  0
+
+Numbers you played for set2: 39 41 47 46 24 35 
+Lotto numbers for set2: 28 37 34 6 14 31
+ Winning numbers for set2:  28 37 34 6 14 31
+matching numbers for set2:  0
+Your money for set2:  0
+
+Numbers you played for set3: 5 10 29 33 43 49 
+Lotto numbers for set3: 28 37 34 6 14 31
+ Winning numbers for set3:  28 37 34 6 14 31
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 35 41 24 2 4 13 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  0
+Your money for set1:  0
+
+Numbers you played for set2: 21 16 15 23 30 26 
+Lotto numbers for set2: 28 37 34 6 14 31
+ Winning numbers for set2:  28 37 34 6 14 31
+matching numbers for set2:  0
+Your money for set2:  0
+
+Numbers you played for set3: 33 39 38 8 5 38 
+Lotto numbers for set3: 28 37 34 6 14 31
+ Winning numbers for set3:  28 37 34 6 14 31
+matching numbers for set3:  0
+Your money for set3:  0
+
+Date: 2021-06-25 10:30:10.298866
+Numbers you played for set1: 1 17 38 33 28 43 
+Lotto numbers for set1: 28 37 34 6 14 31
+ Winning numbers for set1:  28 37 34 6 14 31
+matching numbers for set1:  1
+Your money for set1:  0
+
+Numbers you played for set2: 30 47 3 15 34 6 
+Lotto numbers for set2: 28 37 34 6 14 31
+ Winning numbers for set2:  28 37 34 6 14 31
+matching numbers for set2:  2
+Your money for set2:  20
+
+Numbers you played for set3: 25 31 46 49 8 24 
+Lotto numbers for set3: 28 37 34 6 14 31
+ Winning numbers for set3:  28 37 34 6 14 31
+matching numbers for set3:  1
+Your money for set3:  0
+
+Acount holder:  uthmaan bredaBank: FNB
+Account number: 1234567890567893456789
+Amount:

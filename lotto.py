@@ -1281,11 +1281,14 @@ class Lotto_Machine:
                         self.compare.append(i) # append the numbers that are on the lucky numbers
                 for i in self.dict:
                     if i == len(self.compare):
-                        self.wins_entry1.insert(0,self.dict[i]) # showing how the number of wining numbers
+                        self.wins_entry1.insert(0,self.dict[i])
+                # showing how the number of wining numbers
 
                 self.results_entry1.insert(0, self.compare) # place all  the numbers in the necessary entries
                 self.draw_entry1.insert(0, self.game_numbers)
                 self.match_entry1.insert(0,len(self.compare))
+                total1 = float(self.wins_entry1.get())
+                self.totals.append(total1)
                 self.num_entry1.config(state='readonly')
                 self.results_entry1.config(state='readonly')
                 self.draw_entry1.config(state='readonly')
@@ -1311,6 +1314,8 @@ class Lotto_Machine:
                     self.results_entry2.insert(0, self.compare)
                     self.draw_entry2.insert(0, self.game_numbers)
                     self.match_entry2.insert(0,len(self.compare))
+                    total2 = float(self.wins_entry2.get())
+                    self.totals.append(total2)
                     self.num_entry2.config(state='readonly')
                     self.results_entry2.config(state='readonly')
                     self.draw_entry2.config(state='readonly')
@@ -1335,6 +1340,8 @@ class Lotto_Machine:
                         self.results_entry3.insert(0, self.compare)
                         self.draw_entry3.insert(0, self.game_numbers)
                         self.match_entry3.insert(0,len(self.compare))
+                        total3 = float(self.wins_entry3.get())
+                        self.totals.append(total3)
                         self.num_entry3.config(state='readonly')
                         self.results_entry3.config(state='readonly')
                         self.draw_entry3.config(state='readonly')
@@ -1348,19 +1355,19 @@ class Lotto_Machine:
                         f.write("\n")
                         f.close()
 
-                    if len(self.wins_entry1.get()) > 0 :
-                        total1 = float(self.wins_entry1.get())
-                        self.totals.append(total1)
+                    #if len(self.wins_entry1.get()) > 0 :
+                        #total1 = float(self.wins_entry1.get())
+                        #self.totals.append(total1)
                         #self.total_entry.insert(0,total1)
 
-                        if len(self.wins_entry2.get())>0:
-                            total2 = float(self.wins_entry2.get())
-                            self.totals.append(total2)
+                        #if len(self.wins_entry2.get())>0:
+                            #total2 = float(self.wins_entry2.get())
+                            #self.totals.append(total2)
                         #self.total_entry.insert(0,total2)
 
-                            if len(self.wins_entry3.get()) > 0:
-                                total3 = float(self.wins_entry3.get())
-                                self.totals.append(total3)
+                            #if len(self.wins_entry3.get()) > 0:
+                                #total3 = float(self.wins_entry3.get())
+                                #self.totals.append(total3)
                                 #self.total_entry.insert(0,total3)
                 sum_totals = sum(self.totals)
                 self.total_entry.insert(0,sum_totals)
